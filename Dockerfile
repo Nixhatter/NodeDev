@@ -15,7 +15,6 @@ WORKDIR "/var/www"
 
 # Let's install all the dependencies
 RUN yum -y update; yum clean all
-RUN yum -y group install "Development Tools"        # Dev tools are optional
 RUN yum -y install epel-release; yum clean all
 RUN yum -y install nginx git which
 
@@ -34,4 +33,4 @@ VOLUME ["/var/www"]
 EXPOSE 4000
 
 # Let's go go go
-CMD cd /var/www && npm install --no-bin-links && ls && grunt --gruntfile /var/www/GruntFile.js
+CMD cd /var/www && npm install --no-bin-links && grunt --gruntfile /var/www/Gruntfile.js
