@@ -25,7 +25,7 @@ RUN mkdir /var/internal
 
 RUN echo "inotifywait -r -m /var/www | while read" >> inotify.sh
 RUN echo "do" >> inotify.sh
-RUN echo "rsync -a /var/www/ /var/internal/" >> inotify.sh
+RUN echo "rsync -a --exclude=node_modules --delete /var/www/ /var/internal/" >> inotify.sh
 RUN echo "done" >> inotify.sh
 
 # Setup the Volume
